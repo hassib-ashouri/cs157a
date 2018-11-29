@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="DBConnection"/>
+	<classpathentry kind="src" path="MainMenu"/>
+	<classpathentry kind="src" path="task1"/>
+	<classpathentry kind="src" path="task10"/>
+	<classpathentry kind="src" path="task11"/>
+	<classpathentry kind="src" path="task12"/>
+	<classpathentry kind="src" path="task13"/>
+	<classpathentry kind="src" path="task14"/>
+	<classpathentry kind="src" path="task2"/>
+	<classpathentry kind="src" path="task3"/>
+	<classpathentry kind="src" path="task4"/>
+	<classpathentry kind="src" path="task5"/>
+	<classpathentry kind="src" path="task6"/>
+	<classpathentry kind="src" path="task7"/>
+	<classpathentry kind="src" path="task8"/>
+	<classpathentry kind="src" path="task9"/>
+	<classpathentry kind="lib" path="mysql-connector-java-8.0.13.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
