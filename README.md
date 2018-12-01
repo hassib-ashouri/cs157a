@@ -9,7 +9,7 @@
 
 3. Task 3: (descriptiona and query)
 
-4. Task 4: Sales report: report the total of sales by the month and year
+4. Task 4: (Sales report: report the total of sales by the month and year )
            SELECT  year(order_date) as SaleYear,month(order_date) as SaleMonth,Sum(total_cost) as TotalSales
            FROM Orders
            GROUP BY year(order_date), month(order_date)
@@ -18,7 +18,7 @@
 5. Task 5:
 6. Task 6:
 7. Task 7:
-8. Task 8: Common product in shopping cart: Report the common product in the shopping carts of Customers now for marketing purposes
+8. Task 8: (Common product in shopping cart: Report the common product in the shopping carts of Customers now for marketing purposes. )
           SELECT P.product_id, Op.option_id,product_name, option_name, Sum(CHP.quantity) as TotalQuantity
           FROM Product P
 	             INNER JOIN Carts_Has_Products CHP ON P.product_id = CHP.product_id
