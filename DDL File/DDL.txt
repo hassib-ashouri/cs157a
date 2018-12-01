@@ -34,6 +34,7 @@ CREATE TABLE Options (
 CREATE TABLE Products_Has_Options (
 	product_id INT(5),
 	option_id INT(5),
+	quantity INT(4),
 	price REAL,
 	on_sale BOOLEAN,
 	specs text(50),
