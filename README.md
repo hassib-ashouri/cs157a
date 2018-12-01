@@ -1,9 +1,9 @@
 # CS157A
 # SQL queries for the tasks
-1. Task 1: Registered user report information about the registered users
+1. Task 1: (Registered user report information about the registered users)
            SELECT * FROM user
            
-2. Task 2: Insert a new customer
+2. Task 2: (Insert a new customer)
            INSER INTO user(user_id, username, password, full_name, address, email, phone)
            VALUES (‘107’,’Susan’,’Susan Cortez’,’564 Washington St, San Jose, CA 95113’,’susan@gmail.com’,4084718369)
 
@@ -27,9 +27,9 @@
           
 9. Task 9:
 
-10. Task 10: Functionality: Inventory report: get a report about the counts of items in the inventory.
+10. Task 10: (Functionality: Inventory report: get a report about the counts of items in the inventory.
 (When we design product and option product, we don’t design expiration date for the product. So, I can’t find the inventory)
-SQL: Inventory report: display all products which have quantity > 50 
+SQL: Inventory report: display all products which have quantity > 50 )
           SELECT P.product_id, Op.option_id,product_name, option_name, quantity
           FROM Product P,
 	             Products_Has_Options CHO,
@@ -39,7 +39,7 @@ SQL: Inventory report: display all products which have quantity > 50
 12. Task 12:
 13. Task 13:
 
-14. Task 14: Inventory report: get a report about items out of stock with vendor information to reorder.
+14. Task 14: (Inventory report: get a report about items out of stock with vendor information to reorder. )
           SELECT P.product_id, Op.option_id,product_name, option_name, quantity
           FROM Product P,
 	             Products_Has_Options CHO,
