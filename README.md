@@ -60,8 +60,18 @@ SQL: Inventory report: display all products which have quantity > 50 )
 	             Products_Has_Options CHO,
 	             Options Op 
           WHERE P.product_id = CHO.product_id AND CHO.option_id = Op.option_id AND quantity >30
-11. Task 11:
-12. Task 12:
+	  
+11. Task 11:(Update information regarding a specific product)
+
+	UPDATE Product
+   	SET product_name = 'Macbook Pro (2018)'
+	WHERE Id = 1200
+	
+	
+12. Task 12: (Display the number of product is each category )
+	SELECT PC.category_id, category_name,Product.product_id, product_name
+	FROM Product, Products_Belong_Category PC, Category
+	WHERE PC.product_id = Product.product_id AND PC.category_id = Category.category_id AND Category.category_id = 4000
 13. Task 13:
 
 14. Task 14: (Inventory report: get a report about items out of stock with vendor information to reorder. )
