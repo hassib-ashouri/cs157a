@@ -42,14 +42,14 @@
           GROUP BY P.product_id, Op.option_id
           
 9. Task 9:(Insert a new product)
-           INSER INTO Product(product_id, name, description)
-           VALUES (‘1401’,’IPHONE XS’,’The iPhone X display is so immersive the device itself disappears into the experience. ')
-	   INSER INTO Products_Has_Options(product_id,option_id,quantity,price,on_sale,specs)
-	   VALUES('1401','1201','20','899','0','Iphone XS Storage capacity 256 GB')
-	   INSER INTO Products_Sold_Vendor(vendor_id,product_id)
-	   VALUES('140','400')
-	   INSER INTO Products_Belong_Category(product_id,category_id)
-	   VALUES('140','400')
+        INSERT INTO Product(product_id, name, description) 
+		VALUES ("1401", "Samsung","The iPhone X display so immersive the device itself disappears the experience.");
+	INSERT INTO Products_Has_Options(product_id,option_id,quantity,price,on_sale,specs) 
+		VALUES('1401','1201','20','899','0','Iphone XS Storage capacity 256 GB') ;
+	INSERT INTO Products_Sold_Vendor(vendor_id,product_id) 
+		VALUES('140','400') ;
+	INSERT INTO Products_Belong_Category(product_id,category_id)
+		VALUES('140','400')
 	   
 
 10. Task 10: (Functionality: Inventory report: get a report about the counts of items in the inventory.
