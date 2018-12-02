@@ -23,7 +23,13 @@
            ORDER BY year(order_date), month(order_date)
            
 5. Task 5:
-6. Task 6:
+
+6. Task 6:(
+	   SELECT P.product_id as ProductID, product_name as ProductName, O.option_id as OptionID,O.option_name as OptionName, OP.quantity as Quantity, on_sale, (OP.quantity * PHO.price) as TotalPrice
+   	   FROM Product P, Options O, Products_Has_Options PHO, Orders_Has_Products OP
+	   WHERE P.product_id = PHO.product_id AND O.option_id = PHO.option_id AND  P.product_id = OP.Product_id AND on_sale = 1
+
+                                
 7. Task 7:
 8. Task 8: (Common product in shopping cart: Report the common product in the shopping carts of Customers now for marketing purposes. )
           SELECT P.product_id, Op.option_id,product_name, option_name, Sum(CHP.quantity) as TotalQuantity
