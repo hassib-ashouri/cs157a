@@ -5,7 +5,7 @@ CREATE TABLE User (
 	full_name VARCHAR(50),
 	address VARCHAR(50),
 	email VARCHAR(50),
-	phone INT(10)
+	phone BIGINT(10)
 );
 
 CREATE TABLE CreditCard (
