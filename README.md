@@ -7,7 +7,14 @@
            INSER INTO user(user_id, username, password, full_name, address, email, phone)
            VALUES (‘107’,’Susan’,’Susan Cortez’,’564 Washington St, San Jose, CA 95113’,’susan@gmail.com’,4084718369)
 
-3. Task 3: (descriptiona and query)
+3. Task 3: (Display a list of the customers that don’t buy at all.)
+	   SELECT * 
+	   FROM User
+	   WHERE NOT EXISTS ( SELECT * 
+			      FROM Orders_Placed_User OP
+                              WHERE User.user_id = OP.user_id)
+                                        
+                                        
 
 4. Task 4: (Sales report: report the total of sales by the month and year )
            SELECT  year(order_date) as SaleYear,month(order_date) as SaleMonth,Sum(total_cost) as TotalSales
