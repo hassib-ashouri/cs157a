@@ -1,0 +1,116 @@
+CREATE TABLE User (
+	user_id INT(5) PRIMARY KEY,
+	username VARCHAR(30),
+	password VARCHAR(50),
+	full_name VARCHAR(50),
+	address VARCHAR(50),
+	email VARCHAR(50),
+	phone BIGINT(10)
+);
+
+CREATE TABLE CreditCard (
+	credit_card_number BIGINT(16) PRIMARY KEY,
+	holder_name VARCHAR(30),
+	expiration_date VARCHAR(5)
+);
+
+CREATE TABLE Users_Has_CreditCard (
+	user_id INT(5),
+	credit_card_number BIGINT(16),
+	PRIMARY KEY (user_id, credit_card_number)
+);
+
+CREATE TABLE Product (
+	product_id INT(5) PRIMARY KEY,
+	product_name VARCHAR(30),
+	description text
+);
+
+CREATE TABLE Options (
+	option_id INT(5) PRIMARY KEY,
+	option_name VARCHAR(30)
+);
+
+CREATE TABLE Products_Has_Options (
+	product_id INT(5),
+	option_id INT(5),
+	quantity INT(4),
+	price REAL,
+	on_sale BOOLEAN,
+	specs text(50),
+	PRIMARY KEY(product_id, option_id)
+);
+
+CREATE TABLE Orders (
+	order_id INT(5) PRIMARY KEY,
+	total_item INT(5),
+	shipping_fee REAL,
+	tax REAL,
+	total_cost REAL,
+	order_date DATE,
+	delivery_date DATE,
+	ship_name VARCHAR(50),
+	ship_address VARCHAR(50),
+	tracking_number text,
+	delivery_status boolean
+);
+
+CREATE TABLE Orders_Has_Products (
+	order_id INT(5),
+	product_id INT(5),
+	option_id INT(5),
+	quantity INT(5),
+	PRIMARY KEY (order_id, product_id, option_id)
+);
+
+CREATE TABLE Orders_Paid_CreditCard (
+	credit_card_number INT(16),
+	order_id INT(5),
+	PRIMARY KEY (credit_card_number, order_id)
+);
+
+CREATE TABLE Orders_Placed_User (
+	user_id INT(5),
+	order_id INT(5),
+	PRIMARY KEY (user_id, order_id)
+);
+
+CREATE TABLE ShoppingCart (
+	shopping_cart_id INT(5) PRIMARY KEY,
+	status BOOLEAN
+);
+
+CREATE TABLE Cart_Belongs_User (
+	user_id INT(5),
+	shopping_cart_id INT(5),
+	PRIMARY KEY (user_id, shopping_cart_id)
+);
+
+CREATE TABLE Carts_Has_Products (
+	shopping_cart_id INT(5),
+	product_id INT(5),
+	option_id INT(5),
+	quantity INT(5),
+	PRIMARY KEY (shopping_cart_id, product_id, option_id)
+);
+CREATE TABLE Category (
+	category_id INT(5) PRIMARY KEY,
+	category_name VARCHAR(50)
+);
+CREATE TABLE Products_Belong_Category (
+	product_id INT(5),
+	category_id INT(5),
+	PRIMARY KEY(product_id, category_id)
+);
+CREATE TABLE Vendor (
+	vendor_id INT(5) PRIMARY KEY,
+	vendor_name VARCHAR (30),
+	vendor_phone INT(10),
+	vendor_email VARCHAR(30)
+);
+CREATE TABLE Products_Sold_Vendor (
+	vendor_id INT(5),
+	product_id INT(5),
+	PRIMARY KEY (vendor_id, product_id)
+);
+
