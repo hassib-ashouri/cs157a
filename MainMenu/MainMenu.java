@@ -14,9 +14,9 @@ public class MainMenu extends Application
     @Override public void start(Stage primaryStage)
     {
         mainMenuPane = MainMenu.prepMainMenu();
-        mainPane = new Pane(mainMenuPane);
-        mainPane.setPrefSize(500, 1000);
-        primaryStage.setScene(new Scene(mainPane, 500, 1000));
+        root = new Pane(mainMenuPane);
+        root.setPrefSize(500, 1000);
+        primaryStage.setScene(new Scene(root, 500, 1000));
         primaryStage.show();
     }
     /**
@@ -88,10 +88,25 @@ public class MainMenu extends Application
         };
     }
 
-    private static void replaceMenuWith(Pane withThis)
+    /**
+     * This method will provide the handler to the return buttons to go
+     * back to the sales menu.
+     * @return
+     */
+    public static EventHandler<ActionEvent> backtoSalesMenu()
     {
-        mainPane.getChildren().removeAll(mainPane.getChildren());
-        mainPane.getChildren().add(withThis);
+        return new EventHandler<ActionEvent>() {
+            @Override public void handle(ActionEvent event)
+            {
+                replaceMenuWith(salesfuncsPane);
+            }
+        };
+    }
+
+    static void replaceMenuWith(Pane withThis)
+    {
+        root.getChildren().removeAll(root.getChildren());
+        root.getChildren().add(withThis);
     }
     
     public static void main(String[] args)
@@ -103,5 +118,5 @@ public class MainMenu extends Application
     private static Pane salesfuncsPane = SalesPane.getSalesPane();
     private static Pane userFuncsPane = UserPane.getUserPane();
     private static Pane productFuncsPane = ProductPane.getProductPane();
-    private static Pane mainPane = null;
+    private static Pane root = null;
 }
