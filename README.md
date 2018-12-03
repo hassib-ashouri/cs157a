@@ -72,7 +72,25 @@ SQL: Inventory report: display all products which have quantity > 50 )
 	SELECT PC.category_id, category_name,Product.product_id, product_name
 	FROM Product, Products_Belong_Category PC, Category
 	WHERE PC.product_id = Product.product_id AND PC.category_id = Category.category_id AND Category.category_id = 4000
-13. Task 13:
+	
+13. Task 13:(Display best (top 5) performing products):
+	SELECT P.product_id, product_name, SUM(quantity) AS TotalQuantity, total_cost
+	FROM Orders OD
+		INNER JOIN Orders_Has_Products OP ON (OD.order_id = OP.order_id)
+            	INNER JOIN Product P ON (OP.product_id = P.product_id)
+	GROUP BY product_id, OD.order_id
+	ORDER BY SUM(quantity) DESC
+	Limit 5;
+	
+	(Display worst (top 5) performing products):
+	
+	SELECT P.product_id, product_name, SUM(quantity) AS TotalQuantity, total_cost
+	FROM Orders OD
+		INNER JOIN Orders_Has_Products OP ON (OD.order_id = OP.order_id)
+            	INNER JOIN Product P ON (OP.product_id = P.product_id)
+	GROUP BY product_id, OD.order_id
+	ORDER BY SUM(quantity) ASC
+	Limit 5;
 
 14. Task 14: (Inventory report: get a report about items out of stock with vendor information to reorder. )
           SELECT P.product_id, Op.option_id,product_name, option_name, quantity
