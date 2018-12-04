@@ -27,21 +27,22 @@ For example:
 	
 5. Task 5:
 
-6. Task 6:(Display the proportion of total price for items sold on sale with the total sales in general.)
-	SELECT P.product_id, product_name, OP.quantity as OrderQuantity
+6. Task 6:
+	SELECT P.product_id, product_name, OP.quantity as OrderQuantity, PHO.quantity as OnSaleStatus
 	FROM Orders_Has_Products OP
             INNER JOIN Products_Has_Options PHO ON ( OP.product_id = PHO.product_id and OP.option_id = PHO.option_id)
             INNER JOIN Product P ON (OP.product_id = P.product_id)
-	WHERE on_sale=1
+	WHERE PHO.quantity = 1
 
 
                                 
 7. Task 7: (Display a report of products on sale.)
-	SELECT P.product_id, product_name
-	FROM  Product P
-		Natural Join Products_Has_Options PHO 
-	WHERE on_sale=1
-	 
+	 SELECT P.product_id as ProductID, product_name as ProductName, O.option_id as OptionID,O.option_name as OptionName, OP.quantity as Quantity, on_sale, (OP.quantity * PHO.price) as TotalPrice
+   	   FROM Product P, Options O, Products_Has_Options PHO, Orders_Has_Products OP
+	   WHERE P.product_id = PHO.product_id 
+	   	AND O.option_id = PHO.option_id 
+	   	AND  P.product_id = OP.Product_id 
+	   	AND on_sale = 1
 	   
 8. Task 8: (Common product in shopping cart: Report the common product in the shopping carts of Customers now for marketing purposes. )
           SELECT P.product_id, Op.option_id,product_name, option_name, Sum(CHP.quantity) as TotalQuantity
@@ -53,17 +54,6 @@ For example:
      	 LIMIT 5 
           
 9. Task 9:(Insert a new product)
-	INSER INTO Product(product_id, name, description)
-		VALUES ((product_id),(name),(description))
-	INSERT INTO Products_Has_Options(product_id,option_id,quantity,price,on_sale,specs) 
-		VALUES((product_id),(option_id),(quantity),(price),(on_sale),(specs));
-	INSERT INTO Products_Sold_Vendor(vendor_id,product_id)
-		VALUES((vendor_id),(product_id));
-	INSERT INTO Products_Belong_Category(product_id,category_id)
-		VALUES((product_id),(category_id))
-	
-	
-For example:
         INSERT INTO Product(product_id, name, description) 
 		VALUES ("1401", "Samsung","The iPhone X display so immersive the device itself disappears the experience.");
 	INSERT INTO Products_Has_Options(product_id,option_id,quantity,price,on_sale,specs) 
@@ -81,7 +71,7 @@ SQL: Inventory report: display all products which have quantity > 50 )
           FROM Product P,
 	             Products_Has_Options CHO,
 	             Options Op 
-          WHERE P.product_id = CHO.product_id AND CHO.option_id = Op.option_id AND quantity <10
+          WHERE P.product_id = CHO.product_id AND CHO.option_id = Op.option_id AND quantity >30
 	  
 11. Task 11:(Update information regarding a specific product)
 
