@@ -4,9 +4,11 @@
            SELECT * FROM user;
            
 2. Task 2: (Insert a new customer)
+	   INSER INTO User(user_id,username,password,full_name,address,email,phone)
+	   VALUES ((user_id),(username),(password),(full_name),(address),(email),(phone))
 For example:
-           INSER INTO user(user_id, username, password, full_name, address, email, phone)
-           VALUES (‘107’,’Susan’,’Susan Cortez’,’564 Washington St, San Jose, CA 95113’,’susan@gmail.com’,4084718369);
+           INSER INTO User(user_id, username, password, full_name, address, email, phone)
+           VALUES (‘107’,’Susan’,'mtm156@89',’Susan Cortez’,’564 Washington St, San Jose, CA 95113’,’susan@gmail.com’,4084718369);
   Note: We need to replace the information in single quotes with variables in paranthesis.
 
 3. Task 3: (Display a list of the customers that don’t buy at all.)
@@ -19,11 +21,9 @@ For example:
                                         
 
 4. Task 4: (Sales report: report the total of sales by the month and year )
-        SELECT '2018-10-12' As FromDate, '2018-10-15' As ToDate, Sum(total_cost) as TotalCost
-	FROM Orders O
-	WHERE order_date BETWEEN '2018-10-12' AND '2018-10-15'
-	GROUP BY FromDate
-	ORDER BY TotalCost
+        SELECT Sum(total_cost) as TotalCost
+	FROM Orders
+	WHERE order_date BETWEEN '2018-10-12' AND '2018-10-15';
 	
 5. Task 5:
 
@@ -43,6 +43,8 @@ For example:
 	       INNER JOIN Carts_Has_Products CHP ON P.product_id = CHP.product_id
                INNER JOIN Options Op ON CHP.option_id = Op.option_id
           GROUP BY P.product_id, Op.option_id
+	  ORDER BY TotalQuantity DESC 
+     	 LIMIT 5 
           
 9. Task 9:(Insert a new product)
         INSERT INTO Product(product_id, name, description) 
