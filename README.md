@@ -25,7 +25,25 @@ For example:
 	FROM Orders
 	WHERE order_date BETWEEN '2018-10-12' AND '2018-10-15';
 	
-5. Task 5:
+5. Task 5:(Apply a sale on a category items like a percentage.)
+	
+	UPDATE Products_Has_Options PHO
+	JOIN Product P ON (PHO.product_id = P.product_id)
+	JOIN Products_Belong_Category PBC ON (PBC.product_id = P.product_id)
+	JOIN Category C ON (C.category_id = PBC.category_id)
+	SET on_sale = 1, price = price * (%number)
+	WHERE C.category_id = (category_id)
+	
+For example
+
+	UPDATE Products_Has_Options PHO
+	JOIN Product P ON (PHO.product_id = P.product_id)
+	JOIN Products_Belong_Category PBC ON (PBC.product_id = P.product_id)
+	JOIN Category C ON (C.category_id = PBC.category_id)
+	SET on_sale = 1, price = price * 0.2
+	WHERE C.category_id = 4000
+
+
 
 6. Task 6:
 	SELECT P.product_id, product_name, OP.quantity as OrderQuantity, PHO.quantity as OnSaleStatus
@@ -79,10 +97,14 @@ For exmaple:
           WHERE P.product_id = CHO.product_id AND CHO.option_id = Op.option_id AND quantity <10
 	  
 11. Task 11:(Update information regarding a specific product)
+	UPDATE Product
+   	SET product_name = (product_name)
+	WHERE product_id = (product_id)
 
+For example: 
 	UPDATE Product
    	SET product_name = 'Macbook Pro (2018)'
-	WHERE Id = 1200
+	WHERE product_id = 1200
 	
 	
 12. Task 12: (Display the number of product is each category )
