@@ -81,9 +81,13 @@ SQL: Inventory report: display all products which have quantity > 50 )
 	
 	
 12. Task 12: (Display the number of product is each category )
-	SELECT PC.category_id, category_name,Product.product_id, product_name
-	FROM Product, Products_Belong_Category PC, Category
-	WHERE PC.product_id = Product.product_id AND PC.category_id = Category.category_id AND Category.category_id = 4000
+	SELECT category_name, Count(P.product_id) as ProductNumber
+	FROM Category
+		INNER JOIN Products_Belong_Category PBC ON (PBC.category_id = Category.category_id)
+            	INNER JOIN Product P ON (PBC.product_id = P.product_id)
+	GROUP BY category_name
+
+	
 	
 13. Task 13:(Display best (top 5) performing products):
 	SELECT P.product_id, product_name, SUM(quantity) AS TotalQuantity, total_cost
