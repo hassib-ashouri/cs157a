@@ -52,7 +52,16 @@ For example:
      	 LIMIT 5 
           
 9. Task 9:(Insert a new product)
+	INSERT INTO Product(product_id, name, description) 
+		VALUES ((product_id), (name),(description));
+	INSERT INTO Products_Has_Options(product_id,option_id,quantity,price,on_sale,specs) 
+		VALUES((product_id),(option_id),(quantity),(price),(on_sale),(specs)) ;
+	INSERT INTO Products_Sold_Vendor(vendor_id,product_id) 
+		VALUES((vendor_id),(product_id)) ;
+	INSERT INTO Products_Belong_Category(product_id,category_id)
+		VALUES((product_id),(category_id))
 
+For exmaple: 
         INSERT INTO Product(product_id, name, description) 
 		VALUES ("1401", "Samsung","The iPhone X display so immersive the device itself disappears the experience.");
 	INSERT INTO Products_Has_Options(product_id,option_id,quantity,price,on_sale,specs) 
