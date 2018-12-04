@@ -19,11 +19,12 @@ For example:
                                         
 
 4. Task 4: (Sales report: report the total of sales by the month and year )
-           SELECT  year(order_date) as SaleYear,month(order_date) as SaleMonth,Sum(total_cost) as TotalSales
-           FROM Orders
-           GROUP BY year(order_date), month(order_date)
-           ORDER BY year(order_date), month(order_date)
-           
+        SELECT '2018-10-12' As FromDate, '2018-10-15' As ToDate, Sum(total_cost) as TotalCost
+	FROM Orders O
+	WHERE order_date BETWEEN '2018-10-12' AND '2018-10-15'
+	GROUP BY FromDate
+	ORDER BY TotalCost
+	
 5. Task 5:
 
 6. Task 6:
