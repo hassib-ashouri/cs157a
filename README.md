@@ -37,6 +37,10 @@ For example:
 
                                 
 7. Task 7: (Display a report of products on sale.)
+	SELECT P.product_id, product_name
+	FROM  Product P
+		Natural Join Products_Has_Options PHO 
+	WHERE on_sale=1
 	 
 	   
 8. Task 8: (Common product in shopping cart: Report the common product in the shopping carts of Customers now for marketing purposes. )
@@ -49,6 +53,17 @@ For example:
      	 LIMIT 5 
           
 9. Task 9:(Insert a new product)
+	INSER INTO Product(product_id, name, description)
+		VALUES ((product_id),(name),(description))
+	INSERT INTO Products_Has_Options(product_id,option_id,quantity,price,on_sale,specs) 
+		VALUES((product_id),(option_id),(quantity),(price),(on_sale),(specs));
+	INSERT INTO Products_Sold_Vendor(vendor_id,product_id)
+		VALUES((vendor_id),(product_id));
+	INSERT INTO Products_Belong_Category(product_id,category_id)
+		VALUES((product_id),(category_id))
+	
+	
+For example:
         INSERT INTO Product(product_id, name, description) 
 		VALUES ("1401", "Samsung","The iPhone X display so immersive the device itself disappears the experience.");
 	INSERT INTO Products_Has_Options(product_id,option_id,quantity,price,on_sale,specs) 
@@ -66,7 +81,7 @@ SQL: Inventory report: display all products which have quantity > 50 )
           FROM Product P,
 	             Products_Has_Options CHO,
 	             Options Op 
-          WHERE P.product_id = CHO.product_id AND CHO.option_id = Op.option_id AND quantity >30
+          WHERE P.product_id = CHO.product_id AND CHO.option_id = Op.option_id AND quantity <10
 	  
 11. Task 11:(Update information regarding a specific product)
 
