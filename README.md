@@ -1,11 +1,13 @@
 # CS157A
 # SQL queries for the tasks
 1. Task 1: (Registered user report information about the registered users)
-           SELECT * FROM user
+           SELECT * FROM user;
            
 2. Task 2: (Insert a new customer)
+For example:
            INSER INTO user(user_id, username, password, full_name, address, email, phone)
-           VALUES (‘107’,’Susan’,’Susan Cortez’,’564 Washington St, San Jose, CA 95113’,’susan@gmail.com’,4084718369)
+           VALUES (‘107’,’Susan’,’Susan Cortez’,’564 Washington St, San Jose, CA 95113’,’susan@gmail.com’,4084718369);
+  Note: We need to replace the information in single quotes with variables in paranthesis.
 
 3. Task 3: (Display a list of the customers that don’t buy at all.)
 	   SELECT * 
