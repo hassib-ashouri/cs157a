@@ -1,3 +1,6 @@
+CREATE SCHEMA store;
+Use store;
+
 CREATE TABLE User (
 
 	user_id INT(5) PRIMARY KEY,
@@ -130,7 +133,7 @@ CREATE TABLE Orders_Has_Products (
 
 CREATE TABLE Orders_Paid_CreditCard (
 
-	credit_card_number INT(16),
+	credit_card_number BIGINT(16),
 
 	order_id INT(5),
 
@@ -200,9 +203,9 @@ CREATE TABLE Products_Belong_Category (
 
 	product_id INT(5),
 
-	category_id INT(5),
+	category_id INT(5) NULL,
 
-	PRIMARY KEY(product_id, category_id)
+	PRIMARY KEY(product_id)
 
 );
 
@@ -220,11 +223,11 @@ CREATE TABLE Vendor (
 
 CREATE TABLE Products_Sold_Vendor (
 
-	vendor_id INT(5),
+	vendor_id INT(5) NULL,
 
 	product_id INT(5),
 
-	PRIMARY KEY (vendor_id, product_id)
+	PRIMARY KEY (product_id)
 
 );
 
@@ -292,11 +295,11 @@ ALTER TABLE cart_belongs_user ADD CONSTRAINT FK_cart_belongs_user FOREIGN KEY (u
 
 --      every shopping cart with products must exist in the shoppingcart table, and if shoppingcart is deleted, delete association with products.
 
-ALTER TABLE cart_has_products ADD CONSTRAINT FK_cart_has_product_shoppincart FOREIGN KEY (shopping_cart_id) REFERENCES ShoppingCart(shopping_cart_id) ON DELETE CASCADE;
+ALTER TABLE carts_has_products ADD CONSTRAINT FK_cart_has_product_shoppincart FOREIGN KEY (shopping_cart_id) REFERENCES ShoppingCart(shopping_cart_id) ON DELETE CASCADE;
 
 --      every product in any shopping cart must exist in the products with options table, and if deleted, remove from the shopping cart.
 
-ALTER TABLE cart_has_products ADD CONSTRAINT FK_cart_has_product_products_has_options FOREIGN KEY (product_id, option_id) REFERENCES products_has_options(product_id, option_id) ON DELETE CASCADE;
+ALTER TABLE carts_has_products ADD CONSTRAINT FK_cart_has_product_products_has_options FOREIGN KEY (product_id, option_id) REFERENCES products_has_options(product_id, option_id) ON DELETE CASCADE;
 
 -- products_belong_category (product_id, category_id)
 
@@ -313,11 +316,6 @@ ALTER TABLE products_belong_category ADD CONSTRAINT FK_product_belongs_category_
 --      every product with options must exist in the products table, if deleted, delete its options.
 
 ALTER TABLE products_has_options ADD CONSTRAINT FK_product_has_options_product FOREIGN KEY (product_id) REFERENCES Product(product_id) ON DELETE CASCADE;
-
---      every option associated with a product must exist in the options table, and if deleted, deleted the association.
-
-ALTER TABLE products_belong_category ADD CONSTRAINT FK_product_belongs_category_option FOREIGN KEY (option_id) REFERENCES Options(option_id) ON DELETE CASCADE;
-
 
 
 
@@ -378,7 +376,7 @@ ALTER TABLE Category ADD CONSTRAINT category_unique UNIQUE (category_name);
 
 --      unique(product_id)
 
-ALTER TABLE product_sold_vendor ADD CONSTRAINT product_sold_vendor_unique UNIQUE (product_id);
+ALTER TABLE products_sold_vendor ADD CONSTRAINT product_sold_vendor_unique UNIQUE (product_id);
 
 -- users_has_creditcard (user_id, credit_card_number)
 
@@ -394,7 +392,7 @@ ALTER TABLE users_has_creditcard ADD CONSTRAINT users_has_creditcard_unique UNIQ
 
 --      check (quantity > 0)
 
-ALTER TABLE order_has_product ADD CONSTRAINT order_has_product_check CHECK (quantity > 0);
+ALTER TABLE orders_has_products ADD CONSTRAINT order_has_product_check CHECK (quantity > 0);
 
 -- orders_paid_creditcard (credit_card_number, order_id)
 
@@ -428,7 +426,7 @@ ALTER TABLE cart_belongs_user ADD CONSTRAINT cart_belongs_user_unique UNIQUE (sh
 
 --      check(quantity > 0)
 
-ALTER TABLE cart_has_products ADD CONSTRAINT cart_quantity_check CHECK(quantity > 0);
+ALTER TABLE carts_has_products ADD CONSTRAINT cart_quantity_check CHECK(quantity > 0);
 
 
 
@@ -446,7 +444,7 @@ ALTER TABLE products_belong_category ADD CONSTRAINT products_belong_category_uni
 
 --      check(quantity >= 0)
 
-ALTER TABLE product_has_options ADD CONSTRAINT quantity_check CHECK(quantity > 0);
+ALTER TABLE products_has_options ADD CONSTRAINT quantity_check CHECK(quantity > 0);
 
 
 
@@ -454,7 +452,7 @@ ALTER TABLE product_has_options ADD CONSTRAINT quantity_check CHECK(quantity > 0
 
 -- the index for sale attribute
 
-CREATE INDEX saleIn ON product_has_options(sale);
+CREATE INDEX saleIn ON products_has_options(on_sale);
 
 
 
