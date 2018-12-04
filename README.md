@@ -52,6 +52,7 @@ For example:
      	 LIMIT 5 
           
 9. Task 9:(Insert a new product)
+
         INSERT INTO Product(product_id, name, description) 
 		VALUES ("1401", "Samsung","The iPhone X display so immersive the device itself disappears the experience.");
 	INSERT INTO Products_Has_Options(product_id,option_id,quantity,price,on_sale,specs) 
@@ -65,9 +66,7 @@ For example:
 10. Task 10: (Functionality: Inventory report: get a report about the counts of items in the inventory.)
 
           SELECT P.product_id, Op.option_id,product_name, option_name, quantity
-          FROM Product P,
-	             Products_Has_Options CHO,
-	             Options Op 
+          FROM Product P, Products_Has_Options CHO, Options Op 
           WHERE P.product_id = CHO.product_id AND CHO.option_id = Op.option_id AND quantity <10
 	  
 11. Task 11:(Update information regarding a specific product)
@@ -106,11 +105,12 @@ For example:
 	Limit 5;
 
 14. Task 14: (Inventory report: get a report about items out of stock with vendor information to reorder. )
-          SELECT P.product_id, Op.option_id,product_name, option_name, quantity
-          FROM Product P,
-	             Products_Has_Options CHO,
-               Options Op 
-          WHERE P.product_id = CHO.product_id AND CHO.option_id = Op.option_id AND quantity <0
+           SELECT V.vendor_id, vendor_name, product_name, quantity
+          FROM Vendor V
+		INNER JOIN Products_Sold_Vendor PSV ON (PSV.vendor_id = V.vendor_id)
+                INNER JOIN Product P ON (P.product_id = PSV.product_id)
+                INNER JOIN Products_Has_Options PHO ON (P.product_id = PHO.product_id)
+          WHERE quantity <0
 
 
 
