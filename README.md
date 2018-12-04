@@ -37,12 +37,10 @@ For example:
 
                                 
 7. Task 7: (Display a report of products on sale.)
-	 SELECT P.product_id as ProductID, product_name as ProductName, O.option_id as OptionID,O.option_name as OptionName, OP.quantity as Quantity, on_sale, (OP.quantity * PHO.price) as TotalPrice
-   	   FROM Product P, Options O, Products_Has_Options PHO, Orders_Has_Products OP
-	   WHERE P.product_id = PHO.product_id 
-	   	AND O.option_id = PHO.option_id 
-	   	AND  P.product_id = OP.Product_id 
-	   	AND on_sale = 1
+	SELECT P.product_id, product_name
+	FROM  Product P
+		Natural Join Products_Has_Options PHO 
+	WHERE on_sale=1
 	   
 8. Task 8: (Common product in shopping cart: Report the common product in the shopping carts of Customers now for marketing purposes. )
           SELECT P.product_id, Op.option_id,product_name, option_name, Sum(CHP.quantity) as TotalQuantity
@@ -64,14 +62,13 @@ For example:
 		VALUES('140','400')
 	   
 
-10. Task 10: (Functionality: Inventory report: get a report about the counts of items in the inventory.
-(When we design product and option product, we don’t design expiration date for the product. So, I can’t find the inventory)
-SQL: Inventory report: display all products which have quantity > 50 )
+10. Task 10: (Functionality: Inventory report: get a report about the counts of items in the inventory.)
+
           SELECT P.product_id, Op.option_id,product_name, option_name, quantity
           FROM Product P,
 	             Products_Has_Options CHO,
 	             Options Op 
-          WHERE P.product_id = CHO.product_id AND CHO.option_id = Op.option_id AND quantity >30
+          WHERE P.product_id = CHO.product_id AND CHO.option_id = Op.option_id AND quantity <10
 	  
 11. Task 11:(Update information regarding a specific product)
 
