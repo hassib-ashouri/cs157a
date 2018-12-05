@@ -5,7 +5,9 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-
+/**
+ * this menu should cover tasks 4 total sales,5 apply sale on a category, 6 sold on sale.
+ */
 class SalesPane
 {
     public static Pane getSalesPane()
@@ -33,6 +35,20 @@ class SalesPane
             @Override public void handle(ActionEvent event)
             {
                 MainMenu.replaceMenuWith(TotalSales.getTotalSalesPane());
+            }
+        });
+
+        applySaleOnCategoryBtn.setOnAction(new EventHandler<ActionEvent>(){
+            @Override public void handle(ActionEvent event)
+            {
+                MainMenu.replaceMenuWith(ApplySaleOnCategory.getApplySaleOnCatPane());
+            }
+        });
+
+        soldOnSale.setOnAction(new EventHandler<ActionEvent>(){
+            @Override public void handle(ActionEvent evet)
+            {
+                MainMenu.replaceMenuWith(SoldOnSale.getSoldOnSalePane());
             }
         });
 
