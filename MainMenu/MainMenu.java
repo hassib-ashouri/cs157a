@@ -14,6 +14,7 @@ public class MainMenu extends Application
     @Override public void start(Stage primaryStage)
     {
         mainMenuPane = MainMenu.prepMainMenu();
+        mainMenuPane.setPrefWidth(500);
         root = new Pane(mainMenuPane);
         root.setPrefSize(500, 1000);
         primaryStage.setScene(new Scene(root, 500, 1000));
