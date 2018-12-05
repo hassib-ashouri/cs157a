@@ -1,0 +1,8 @@
+credit_card_number 	holder_name 	expiration_date
+2.56324E+15	Anna Addison 	20-Feb
+1.35632E+15	Carol Campbell 	21-Apr
+6.84323E+15	Julia Jones 	22-Sep
+3.18795E+15	Irene Everly 	23-Jul
+3.56547E+15	Rachel Rose 	22-Dec
+6.53214E+15	Sophie Sutton 	21-Mar
+1.35468E+15	Wendy West 	20-Oct

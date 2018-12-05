@@ -23,7 +23,7 @@ LOAD DATA LOCAL INFILE 'C:/Files/Data_Files/orders_has_products.txt' INTO TABLE 
 LOAD DATA LOCAL INFILE 'C:/Files/Data_Files/orders_paid_creditcard.txt' INTO TABLE category IGNORE 1 ROWS (credit_card_number,order_id);
 
 -- import table orders_placed_user ---
-LOAD DATA LOCAL INFILE 'C:/Files/Data_Files/orders_paid_creditcard.txt' INTO TABLE category IGNORE 1 ROWS (user_id,order_id);
+LOAD DATA LOCAL INFILE 'C:/Files/Data_Files/orders_placed_user.txt' INTO TABLE category IGNORE 1 ROWS (user_id,order_id);
 
 -- import table product_sold_vendor ---
 LOAD DATA LOCAL INFILE 'C:/Files/Data_Files/product_sold_vendor.txt' INTO TABLE category IGNORE 1 ROWS (vendor_id,product_id);
