@@ -27,12 +27,10 @@ For example:
 	
 5. Task 5:(Apply a sale on a category items like a percentage.)
 	
-	UPDATE Products_Has_Options PHO
-	JOIN Product P ON (PHO.product_id = P.product_id)
-	JOIN Products_Belong_Category PBC ON (PBC.product_id = P.product_id)
-	JOIN Category C ON (C.category_id = PBC.category_id)
-	SET on_sale = 1, price = price * (%number)
-	WHERE C.category_id = (category_id)
+	UPDATE products_belong_category as cat
+	LEFT JOIN products_has_options PHO ON(cat.product_id = PHO.product_id)
+	SET price = price * (fill with discount amount)
+	WHERE category_id = (fill with category id);
 	
 For example
 
