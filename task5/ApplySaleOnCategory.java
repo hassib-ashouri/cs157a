@@ -29,12 +29,13 @@ class ApplySaleOnCategory
         HBox discountPairPane = new HBox(10);
         discountPairPane.setAlignment(Pos.CENTER_LEFT);
         discountPairPane.getChildren().addAll(new Label("Enter the amount of discount percentage wise: "), discountField);
-
+        //Note for assistance with the number inputed.
+        Label discountAmount = new Label("For example: If you want to apply 50% discount, input 0.50 .");
         //main pane
         VBox mainPane = new VBox(10);
         mainPane.setAlignment(Pos.TOP_LEFT);
         mainPane.setPadding(new Insets(10,25,10,25));
-        mainPane.getChildren().addAll(backToSalemenuBtn ,catPairPane, discountPairPane, submit);
+        mainPane.getChildren().addAll(backToSalemenuBtn ,catPairPane, discountPairPane, discountAmount, submit);
         
         // add action handlers
         backToSalemenuBtn.setOnAction(MainMenu.backtoSalesMenu());
@@ -47,7 +48,7 @@ class ApplySaleOnCategory
                     String querytext = 
                     "UPDATE products_belong_category as cat "+
                     "LEFT JOIN products_has_options PHO ON(cat.product_id = PHO.product_id) "+
-                    "SET price = price * "+ Integer.getInteger(discountField.getText())/100 +
+                    "SET price = price * "+ discountField.getText() +
                     " WHERE category_id = "+ categories.getValue().id;
                     PreparedStatement query = con.prepareStatement(querytext);
                     query.execute();
