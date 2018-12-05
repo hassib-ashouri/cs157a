@@ -1,0 +1,118 @@
+LOAD DATA INFILE  'c:/Users/Documents/GitHub/cs157a/Data Files/Cart_Belongs_User.csv '
+INTO TABLE Cart_Belongs_User
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+LOAD DATA INFILE  'c:/Users/Documents/GitHub/cs157a/Data Files/Carts_Has_Products.csv '
+INTO TABLE Carts_Has_Products
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+LOAD DATA INFILE  'c:/Users/Documents/GitHub/cs157a/Data Files/Category.csv '
+INTO TABLE Category
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+LOAD DATA INFILE  'c:/Users/Documents/GitHub/cs157a/Data Files/CreditCard.csv '
+INTO TABLE CreditCard
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+LOAD DATA INFILE  'c:/Users/Documents/GitHub/cs157a/Data Files/Option.csv '
+INTO TABLE Option
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+LOAD DATA INFILE  'c:/Users/Documents/GitHub/cs157a/Data Files/Order.csv '
+INTO TABLE Order
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+LOAD DATA INFILE  'c:/Users/Documents/GitHub/cs157a/Data Files/Orders_Has_Products.csv '
+INTO TABLE Orders_Has_Products
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+LOAD DATA INFILE  'c:/Users/Documents/GitHub/cs157a/Data Files/Orders_Paid_CreditCard.csv '
+INTO TABLE Orders_Paid_CreditCard
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+LOAD DATA INFILE  'c:/Users/Documents/GitHub/cs157a/Data Files/Orders_Placed_User.csv '
+INTO TABLE Orders_Placed_User
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+LOAD DATA INFILE  'c:/Users/Documents/GitHub/cs157a/Data Files/Products.csv '
+INTO TABLE Products
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+LOAD DATA INFILE  'c:/Users/Documents/GitHub/cs157a/Data Files/Products_Belong_Category.csv '
+INTO TABLE Products_Belong_Category
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+LOAD DATA INFILE  'c:/Users/Documents/GitHub/cs157a/Data Files/Products_Has_Options.csv '
+INTO TABLE Products_Has_Options
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+LOAD DATA INFILE  'c:/Users/Documents/GitHub/cs157a/Data Files/ShoppingCart.csv '
+INTO TABLE ShoppingCart
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+LOAD DATA INFILE  'c:/Users/Documents/GitHub/cs157a/Data Files/User.csv '
+INTO TABLE User
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+LOAD DATA INFILE  'c:/Users/Documents/GitHub/cs157a/Data Files/Vendor.csv '
+INTO TABLE Vendor
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+LOAD DATA INFILE  'c:/Users/Documents/GitHub/cs157a/Data Files/product_sold_vendor.csv '
+INTO TABLE product_sold_vendor
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+LOAD DATA INFILE  'c:/Users/Documents/GitHub/cs157a/Data Files/user_has_creditcard.csv '
+INTO TABLE user_has_creditcard
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
