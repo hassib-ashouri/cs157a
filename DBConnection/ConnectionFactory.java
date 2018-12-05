@@ -14,7 +14,7 @@ public class ConnectionFactory
         try 
         {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			myCon = DriverManager.getConnection("jdbc:mysql://localhost:3306/homework", "root", "Root291.");
+			myCon = DriverManager.getConnection("jdbc:mysql://localhost:3306/store", "root", "Root291.");
         } 
         catch (SQLException e) 
         {
