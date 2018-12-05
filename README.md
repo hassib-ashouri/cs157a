@@ -44,7 +44,7 @@ For example
 
 
 6. Task 6:
-	SELECT P.product_id, product_name, OP.quantity as OrderQuantity, PHO.on_sale as OnSaleStatus 
+	SELECT P.product_id, OP.option_id, product_name
 	FROM Orders_Has_Products OP 
 		INNER JOIN Products_Has_Options PHO ON ( OP.product_id = PHO.product_id and OP.option_id = PHO.option_id) 
             	INNER JOIN Product P ON (OP.product_id = P.product_id) 
