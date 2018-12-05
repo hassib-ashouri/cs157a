@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 import javafx.event.*;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -20,18 +22,22 @@ class TotalSales extends VBox
     }
     public static Pane getTotalSalesPane()
     {
-        Label descriptionLabel = new Label("Get the total sales between two dates:\nDates have to be in the format: DD/MM/YYYY");
+        Label descriptionLabel = new Label("Get the total sales between two dates:\nDates have to be in the format: YYYY-MM-DD");
         HBox fromDateCombo = new HBox();
+        fromDateCombo.setAlignment(Pos.CENTER_LEFT);
         fromDateCombo.getChildren().addAll(new Label("From: "), fDateField);
 
         HBox toDateCombo = new HBox();
+        toDateCombo.setAlignment(Pos.CENTER_LEFT);
         toDateCombo.getChildren().addAll(new Label("To: "), tDateField);
 
         HBox salesCombo = new HBox();
+        salesCombo.setAlignment(Pos.CENTER_LEFT);
         salesCombo.getChildren().addAll(new Label("Sales: "), salesField);
 
         //adding components to the totalsales pane.
         TotalSales getSalesView = new TotalSales(5);
+        getSalesView.setPadding(new Insets(10,25,10,25));
         getSalesView.getChildren().addAll(backToSalesFunsMenuBtn, descriptionLabel, fromDateCombo, toDateCombo, salesCombo, submitBtn);
 
         //add event handler to the button.
@@ -46,13 +52,13 @@ class TotalSales extends VBox
                     Connection con =  ConnectionFactory.getConnection();
                     try 
                     {
-                        ResultSet results;
-                        PreparedStatement query =  con.prepareStatement("Select SUM(price) From printer;");
+                        PreparedStatement query =  con.prepareStatement(
+                        "SELECT Sum(total_cost) as TotalCost FROM Orders WHERE order_date BETWEEN '"+fDateField.getText()+"' AND '"+tDateField.getText()+"';");
                         if(query.execute())
                         {
-                            results = query.getResultSet();
+                            ResultSet results = query.getResultSet();
                             results.next();
-                            salesField.setText("" + results.getInt(1));
+                            salesField.setText("" + results.getDouble(1));
                             salesField.setEditable(false);
                         };
 
