@@ -10,6 +10,7 @@ import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -77,7 +78,7 @@ class SoldOnSale
         mainPane.setPadding(new Insets(10,25,10,25));
         mainPane.setAlignment(Pos.TOP_LEFT);
         mainPane.setPrefWidth(500);
-        mainPane.getChildren().addAll(backToSaleMenu, table, submitBtn);
+        mainPane.getChildren().addAll(backToSaleMenu,new Label("This shows the products that were sold on sale."), table, submitBtn);
 
         return mainPane;
     }

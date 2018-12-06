@@ -21,9 +21,4 @@ public class Row
 	public String getName() {
 		return name;
 	}
-    
-
-//    public Integer prdouct_id() {return this.product_id;}
-//    public Integer getOption_id() {return this.option_id;}
-//    public String getName() {return this.name;}
 }
