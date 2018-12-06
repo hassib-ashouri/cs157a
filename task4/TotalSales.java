@@ -53,7 +53,7 @@ class TotalSales extends VBox
                     try 
                     {
                         PreparedStatement query =  con.prepareStatement(
-                        "SELECT Sum(total_cost) as TotalCost FROM Orders WHERE order_date BETWEEN '"+fDateField.getText()+"' AND '"+tDateField.getText()+"';");
+                        "call get_sales('"+fDateField.getText()+"','"+tDateField.getText()+"');");
                         if(query.execute())
                         {
                             ResultSet results = query.getResultSet();
