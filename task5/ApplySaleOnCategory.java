@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -15,6 +16,7 @@ import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
+import javafx.scene.control.Alert.AlertType;
 
 class ApplySaleOnCategory
 {
@@ -24,6 +26,7 @@ class ApplySaleOnCategory
         HBox catPairPane = new HBox(10);
         catPairPane.setAlignment(Pos.CENTER_LEFT);
         catPairPane.getChildren().addAll(new Label("Choose category to apply discount on: "), categories);
+        categories.setValue(categories.getItems().get(0));
 
         //disount pair of fields
         HBox discountPairPane = new HBox(10);
@@ -45,11 +48,10 @@ class ApplySaleOnCategory
                 Connection con = ConnectionFactory.getConnection();
                 try 
                 {
+                    double discount = Double.parseDouble(discountField.getText());
+                    if(discount > 1 || discount <= 0) throw new NumberFormatException();
                     String querytext = 
-                    "UPDATE products_belong_category as cat "+
-                    "LEFT JOIN products_has_options PHO ON(cat.product_id = PHO.product_id) "+
-                    "SET price = price * "+ discountField.getText() +
-                    " WHERE category_id = "+ categories.getValue().id;
+                    "CALL apply_sale_on_category("+ categories.getValue().id + ","+ discountField.getText() +")";
                     PreparedStatement query = con.prepareStatement(querytext);
                     query.execute();
                     //close the connection
@@ -59,6 +61,14 @@ class ApplySaleOnCategory
                 {
                     System.err.println("problem with executing the query");
                     e.printStackTrace();
+                }
+                catch(NumberFormatException e)
+                {
+                    Alert alert = new Alert(AlertType.ERROR);
+                    alert.setTitle("Discount format is incorrect.");
+                    alert.setHeaderText(null);
+                    alert.setContentText("The discount format should be a decimal number bigger that 0 and less that 1");
+                    alert.showAndWait();
                 }
 
             }
