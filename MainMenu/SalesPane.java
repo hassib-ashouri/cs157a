@@ -14,7 +14,7 @@ class SalesPane
     {
         Button  totalSalesBtn = new Button("Total Sales"),
                 applySaleOnCategoryBtn = new Button("Apply Sale On Category"),
-                soldOnSale = new Button("Apply Sale"),
+                soldOnSale = new Button("Products Sold In Sale"),
                 backToMainMenuBtn = new Button("<-- Main Menu");
         
         VBox menuPane = new VBox(10);
