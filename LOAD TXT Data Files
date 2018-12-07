@@ -11,40 +11,40 @@ LOAD DATA LOCAL INFILE 'C:/Files/Data_Files/category.txt' INTO TABLE category IG
 LOAD DATA LOCAL INFILE 'C:/Files/Data_Files/creditcard.txt' INTO TABLE creditcard IGNORE 1 ROWS (credit_card_number,holder_name,expiration_date);
 
 -- import table option ---
-LOAD DATA LOCAL INFILE 'C:/Files/Data_Files/option.txt' INTO TABLE category IGNORE 1 ROWS (option_id,option_name);
+LOAD DATA LOCAL INFILE 'C:/Files/Data_Files/option.txt' INTO TABLE option IGNORE 1 ROWS (option_id,option_name);
 
 -- import table order ---
-LOAD DATA LOCAL INFILE 'C:/Files/Data_Files/order.txt' INTO TABLE category IGNORE 1 ROWS (order_id,total_item,shipping_fee,tax,total_cost,order_date,delivery_date,ship_name,ship_address,tracking_number,delivery_status);
+LOAD DATA LOCAL INFILE 'C:/Files/Data_Files/order.txt' INTO TABLE order IGNORE 1 ROWS (order_id,total_item,shipping_fee,tax,total_cost,order_date,delivery_date,ship_name,ship_address,tracking_number,delivery_status);
 
 -- import table orders_has_products ---
-LOAD DATA LOCAL INFILE 'C:/Files/Data_Files/orders_has_products.txt' INTO TABLE category IGNORE 1 ROWS (order_id,product_id,option_id,quantity);
+LOAD DATA LOCAL INFILE 'C:/Files/Data_Files/orders_has_products.txt' INTO TABLE orders_has_products IGNORE 1 ROWS (order_id,product_id,option_id,quantity);
 
 -- import table orders_paid_creditcard ---
-LOAD DATA LOCAL INFILE 'C:/Files/Data_Files/orders_paid_creditcard.txt' INTO TABLE category IGNORE 1 ROWS (credit_card_number,order_id);
+LOAD DATA LOCAL INFILE 'C:/Files/Data_Files/orders_paid_creditcard.txt' INTO TABLE orders_paid_creditcard IGNORE 1 ROWS (credit_card_number,order_id);
 
 -- import table orders_placed_user ---
-LOAD DATA LOCAL INFILE 'C:/Files/Data_Files/orders_placed_user.txt' INTO TABLE category IGNORE 1 ROWS (user_id,order_id);
+LOAD DATA LOCAL INFILE 'C:/Files/Data_Files/orders_placed_user.txt' INTO TABLE orders_placed_user IGNORE 1 ROWS (user_id,order_id);
 
 -- import table product_sold_vendor ---
-LOAD DATA LOCAL INFILE 'C:/Files/Data_Files/product_sold_vendor.txt' INTO TABLE category IGNORE 1 ROWS (vendor_id,product_id);
+LOAD DATA LOCAL INFILE 'C:/Files/Data_Files/product_sold_vendor.txt' INTO TABLE product_sold_vendor IGNORE 1 ROWS (vendor_id,product_id);
 
 -- import table products ---
-LOAD DATA LOCAL INFILE 'C:/Files/Data_Files/products.txt' INTO TABLE category IGNORE 1 ROWS (product_id,product_name,descriptions);
+LOAD DATA LOCAL INFILE 'C:/Files/Data_Files/products.txt' INTO TABLE products IGNORE 1 ROWS (product_id,product_name,descriptions);
 
 -- import table products_belong_category ---
-LOAD DATA LOCAL INFILE 'C:/Files/Data_Files/products_belong_category.txt' INTO TABLE category IGNORE 1 ROWS (product_id,category_id);
+LOAD DATA LOCAL INFILE 'C:/Files/Data_Files/products_belong_category.txt' INTO TABLE products_belong_category IGNORE 1 ROWS (product_id,category_id);
 
 -- import table products_has_options ---
-LOAD DATA LOCAL INFILE 'C:/Files/Data_Files/products_has_options.txt' INTO TABLE category IGNORE 1 ROWS (product_id,option_id,quantity,price,on_sale,specs);
+LOAD DATA LOCAL INFILE 'C:/Files/Data_Files/products_has_options.txt' INTO TABLE products_has_options IGNORE 1 ROWS (product_id,option_id,quantity,price,on_sale,specs);
 
 -- import table shoppingcart ---
-LOAD DATA LOCAL INFILE 'C:/Files/Data_Files/shoppingcart.txt' INTO TABLE category IGNORE 1 ROWS (shopping_cart_id,status);
+LOAD DATA LOCAL INFILE 'C:/Files/Data_Files/shoppingcart.txt' INTO TABLE shoppingcart IGNORE 1 ROWS (shopping_cart_id,status);
 
 -- import table user ---
-LOAD DATA LOCAL INFILE 'C:/Files/Data_Files/user.txt' INTO TABLE cart_belongs_user IGNORE 1 ROWS (user_id,username,password,full_name,address,email,phone);
+LOAD DATA LOCAL INFILE 'C:/Files/Data_Files/user.txt' INTO TABLE user IGNORE 1 ROWS (user_id,username,password,full_name,address,email,phone);
 
 -- import table user_has_creditcard ---
-LOAD DATA LOCAL INFILE 'C:/Files/Data_Files/user_has_creditcard.txt' INTO TABLE cart_belongs_user IGNORE 1 ROWS (user_id,credit_card_number);
+LOAD DATA LOCAL INFILE 'C:/Files/Data_Files/user_has_creditcard.txt' INTO TABLE user_has_creditcard IGNORE 1 ROWS (user_id,credit_card_number);
 
 -- import table vendor ---
-LOAD DATA LOCAL INFILE 'C:/Files/Data_Files/vendor.txt' INTO TABLE cart_belongs_user IGNORE 1 ROWS (vendor_id,vendor_name,vendor_phone,vender_email);
+LOAD DATA LOCAL INFILE 'C:/Files/Data_Files/vendor.txt' INTO TABLE vendor IGNORE 1 ROWS (vendor_id,vendor_name,vendor_phone,vender_email);
