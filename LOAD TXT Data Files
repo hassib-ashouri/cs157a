@@ -8,7 +8,7 @@ LOAD DATA LOCAL INFILE 'C:/Files/Data_Files/carts_has_products.txt' INTO TABLE c
 LOAD DATA LOCAL INFILE 'C:/Files/Data_Files/category.txt' INTO TABLE category IGNORE 1 ROWS (category_id,category_name);
 
 -- import table creditcard ---
-LOAD DATA LOCAL INFILE 'C:/Files/Data_Files/creditcard.txt' INTO TABLE category IGNORE 1 ROWS (credit_card_number,holder_name,expiration_date);
+LOAD DATA LOCAL INFILE 'C:/Files/Data_Files/creditcard.txt' INTO TABLE creditcard IGNORE 1 ROWS (credit_card_number,holder_name,expiration_date);
 
 -- import table option ---
 LOAD DATA LOCAL INFILE 'C:/Files/Data_Files/option.txt' INTO TABLE category IGNORE 1 ROWS (option_id,option_name);
